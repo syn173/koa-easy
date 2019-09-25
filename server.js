@@ -1,3 +1,4 @@
+const path = require('path');
 const Koa = require('koa');
 const logger = require('koa-logger');
 const server = require('koa-static');
@@ -8,6 +9,7 @@ const k2c = require('koa2-connect');
 const app = new Koa();
 
 //app.use(logger());
+app.use(server(path.resolve(process.cwd(), 'build')));
 
 app.use(server(__dirname + '/src/assets'));
 
